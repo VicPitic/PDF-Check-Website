@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <script src="https://kit.fontawesome.com/41d48fd3eb.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <script src="https://kit.fontawesome.com/41d48fd3eb.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Exo+2:400,700,500,300);
+
+    body {
+      background: #ebeff2;
+      font-family: "Exo 2";
+    }
+
+    .zone {
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: radial-gradient(ellipse at center,#EB6A5A 0,#c9402f 100%);
+      width:80%;
+      height:50%;
+      border:5px dashed white;
+      text-align:center;
+      color: white;
+      z-index: 20;
+      transition: all 0.3s ease-out;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.05),inset 0 0 .25em 0 rgba(0,0,0,.25);
+      .btnCompression {
+        .btn {
+
+        }
+        .active {
+          background: #EB6A5A;
+          color:white;
+        }
+      }
+      i {
+        text-align: center;
+        font-size: 10em;
+        color:#fff;
+        margin-top: 50px;
+      }
+      .selectFile {
+        height: 50px;
+        margin: 20px auto;
+        position: relative;
+        width: 200px;
+      }
+
+      label, input {
+        cursor: pointer;
+        display: block;
+        height: 50px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      label {
+        background: #fff;
+        color:#EB6A5A;
+        display: inline-block;
+        font-size: 1.2em;
+        line-height: 50px;
+        padding: 0;
+        text-align: center;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 400;
+        box-shadow: 0 1px 1px gray;
+      }
+
+      input[type=file] {
+        opacity: 0;
+      }
+
+    }
+    .zone.in {
+      color:white;
+      border-color:white;
+      background: radial-gradient(ellipse at center,#EB6A5A 0,#c9402f 100%);
+      i {
+        color:#fff;
+      }
+      label {
+        background: #fff;
+        color:#EB6A5A;
+      }
+    }
+    .zone.hover {
+      color:gray;
+      border-color:white;
+      background:#fff;
+      border:5px dashed gray;
+      i {
+        color:#EB6A5A;
+      }
+      label {
+        background: #fff;
+        color:#EB6A5A;
+      }
+    }
+    .zone.fade {
+      transition: all 0.3s ease-out;
+      opacity: 1;
+    }
+
+    .button {
+          -webkit-font-smoothing: antialiased;
+          background-color: $dark-blue;
+          border: none;
+          color: #fff;
+          display: inline-block;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          font-weight: 100;
+          text-decoration: none;
+          user-select: none;
+          letter-spacing: 1px;
+          color: white;
+          padding: 20px 40px;
+          text-transform: uppercase;
+          transition: all 0.1s ease-out;
+
+          &:hover {
+            background-color: $action-color;
+            color: #fff;
+          }
+
+          &:active {
+            transform: scale(0.95);
+          }
+
+          &--bubble {
+            position: relative;
+            z-index: 2;
+            color: white;
+            background: none;
+
+            &:hover {
+              background: none;
+            }
+
+            &:hover + .button--bubble__effect-container .circle {
+              background: darken($action-color, 15%);
+            }
+
+            &:hover + .button--bubble__effect-container .button {
+              background: darken($action-color, 15%);
+            }
+
+            &:active + .button--bubble__effect-container {
+              transform: scale(0.95);
+            }
+
+            &__container {
+              position: relative;
+              display: inline-block;
+
+              .effect-button {
+                position: absolute;
+                width: 50%;
+                height: 25%;
+                top: 50%;
+                left: 25%;
+                z-index: 1;
+                transform: translateY(-50%);
+                background: $dark-blue;
+                transition: background 0.1s ease-out;
+              }
+            }
+          }
+        }
+</style>
+
+<body>
+    <center>
+
+    </center>
+    <div class="zone">
+        <h1><b>Verificator Documente</b></h1>
+        <h2>De Giurgiu Victor, Vadan David si Hij Mark</h2>
+
+        <h3></h3>
+        <div id="dropZ">
+            <i class="fa fa-cloud-upload"></i>
+            <div class="selectFile">
+                <form method="POST">
+                    <h4 style="color: aliceblue;">Fisier</h4>
+                    <input type="file" id="file-button" name="file" accept="application/pdf" required>
+                    <br>
+                    <br>
+
+                    <p>File size limit : 10 MB (Optional)</p>
+
+                    <button value="submit" class="button">Trimite Fisierul</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+<script>
+    const fileButton = document.getElementById("file-button");
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyCEZgWnLbOveJuQQsCDvDTKu0BdBGU4qNs",
+        authDomain: "emails-28257.firebaseapp.com",
+        databaseURL: "https://emails-28257.firebaseio.com",
+        projectId: "emails-28257",
+        storageBucket: "emails-28257.appspot.com",
+        messagingSenderId: "926768544370",
+        appId: "1:926768544370:web:1a2164215a526e39e660eb",
+        measurementId: "G-Q5CJFD2KF9"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+
+    fileButton.addEventListener("change", (e) => {
+        var file = e.target.files[0];
+
+        var storageRef = firebase.storage().ref("proiectTic/" + file.name);
+        storageRef.put(file).then(() => {
+            Swal.fire(
+                'Fisier incarcat cu succes',
+                '',
+                'success'
+            );
+        });
+
+    });
+
+
+
+</script>
+
+</body>
+</html>

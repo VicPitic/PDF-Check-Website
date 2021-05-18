@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <script src="https://kit.fontawesome.com/41d48fd3eb.js" crossorigin="anonymous"></script>
+
+    <title>Pagina Verificare</title>
+</head>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Exo+2:400,700,500,300);
+    body {
+        font-family: "Exo 2";
+    }
+     .zone {
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: radial-gradient(ellipse at center,#EB6A5A 0,#c9402f 100%);
+      width:80%;
+      height:50%;
+      border:5px dashed white;
+      text-align:center;
+      color: white;
+      z-index: 20;
+      transition: all 0.3s ease-out;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.05),inset 0 0 .25em 0 rgba(0,0,0,.25);
+      .btnCompression {
+        .btn {
+
+        }
+        .active {
+          background: #EB6A5A;
+          color:white;
+        }
+      }
+      i {
+        text-align: center;
+        font-size: 10em;
+        color:#fff;
+        margin-top: 50px;
+      }
+      .selectFile {
+        height: 50px;
+        margin: 20px auto;
+        position: relative;
+        width: 200px;
+      }
+
+      label, input {
+        cursor: pointer;
+        display: block;
+        height: 50px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      label {
+        background: #fff;
+        color:#EB6A5A;
+        display: inline-block;
+        font-size: 1.2em;
+        line-height: 50px;
+        padding: 0;
+        text-align: center;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 400;
+        box-shadow: 0 1px 1px gray;
+      }
+
+      input[type=file] {
+        opacity: 0;
+      }
+
+    }
+    .zone.in {
+      color:white;
+      border-color:white;
+      background: radial-gradient(ellipse at center,#EB6A5A 0,#c9402f 100%);
+      i {
+        color:#fff;
+      }
+      label {
+        background: #fff;
+        color:#EB6A5A;
+      }
+    }
+    .zone.hover {
+      color:gray;
+      border-color:white;
+      background:#fff;
+      border:5px dashed gray;
+      i {
+        color:#EB6A5A;
+      }
+      label {
+        background: #fff;
+        color:#EB6A5A;
+      }
+    }
+    .zone.fade {
+      transition: all 0.3s ease-out;
+      opacity: 1;
+    }
+
+    .button {
+          -webkit-font-smoothing: antialiased;
+          background-color: $dark-blue;
+          border: none;
+          color: #fff;
+          display: inline-block;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          font-weight: 100;
+          text-decoration: none;
+          user-select: none;
+          letter-spacing: 1px;
+          color: white;
+          padding: 20px 40px;
+          text-transform: uppercase;
+          transition: all 0.1s ease-out;
+
+          &:hover {
+            background-color: $action-color;
+            color: #fff;
+          }
+
+          &:active {
+            transform: scale(0.95);
+          }
+
+          &--bubble {
+            position: relative;
+            z-index: 2;
+            color: white;
+            background: none;
+
+            &:hover {
+              background: none;
+            }
+
+            &:hover + .button--bubble__effect-container .circle {
+              background: darken($action-color, 15%);
+            }
+
+            &:hover + .button--bubble__effect-container .button {
+              background: darken($action-color, 15%);
+            }
+
+            &:active + .button--bubble__effect-container {
+              transform: scale(0.95);
+            }
+
+            &__container {
+              position: relative;
+              display: inline-block;
+
+              .effect-button {
+                position: absolute;
+                width: 50%;
+                height: 25%;
+                top: 50%;
+                left: 25%;
+                z-index: 1;
+                transform: translateY(-50%);
+                background: $dark-blue;
+                transition: background 0.1s ease-out;
+              }
+            }
+          }
+    }
+</style>
+
+<body>
+    <center>
+        <h1>Fisierul tau a fost verificat</h1>
+
+        <br>
+
+
+    </center>
+
+    <div class="zone">
+        <div id="dropZ">
+            <div class="selectFile">
+                <h2>Fisierul a fost respins deoarece contine cuvinte care sunt incluse in Blacklist</h2>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center><button id="view-button" class="button">Vesi Fisierul</button></center>
+
+    </div>
+
+    <script>
+
+            function getInfluencerCode() {
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                var usernameParam = url.searchParams.get("file");
+
+                return usernameParam;
+
+            }
+
+
+            var viewButton = document.getElementById("view-button")
+
+            viewButton.onclick = () => {
+
+                window.location = `https://firebasestorage.googleapis.com/v0/b/emails-28257.appspot.com/o/proiectTic%2F` + getInfluencerCode() + `?alt=media&token=df275199-8a34-4bf0-8496-1b1143565bbc`
+
+            }
+
+        </script>
+
+</body>
+</html>
